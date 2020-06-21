@@ -196,7 +196,7 @@ def venues():
   #       num_shows should be aggregated based on number of upcoming shows per venue.
 
   data = []
-  all_areas = Venue.query.with_entities(Venue.city, Venue.state).group_by(Venue.city, Venue.state).all()
+  all_areas = db.session.query(Venue.city, Venue.state).group_by(Venue.city, Venue.state).all()
 
   for area in all_areas:
     area_venues = Venue.query.filter_by(city=area.city, state=area.state).all()
