@@ -89,7 +89,7 @@ class Show(db.Model):
 # show5 = Show(start_time="2035-04-15T20:00:00.000Z")
 
 # musicalHop = Venue(name="The Musical Hop",
-#   genres='["Jazz", "Reggae", "Swing", "Classical", "Folk"]',
+#   genres=["Jazz", "Reggae", "Swing", "Classical", "Folk"],
 #   address="1015 Folsom Street",
 #   city="San Francisco",
 #   state="CA",
@@ -102,7 +102,7 @@ class Show(db.Model):
 #   shows=[show1])
 
 # duelingPianos = Venue(name="The Dueling Pianos Bar",
-#   genres='["Classical", "R&B", "Hip-Hop"]',
+#   genres=["Classical", "R&B", "Hip-Hop"],
 #   address="335 Delancey Street",
 #   city="New York",
 #   state="NY",
@@ -114,7 +114,7 @@ class Show(db.Model):
 #   shows=[])
 
 # parkSquare = Venue(name="Park Square Live Music & Coffee",
-#   genres='["Rock n Roll", "Jazz", "Classical", "Folk"]',
+#   genres=["Rock n Roll", "Jazz", "Classical", "Folk"],
 #   address="34 Whiskey Moore Ave",
 #   city="San Francisco",
 #   state="CA",
@@ -126,7 +126,7 @@ class Show(db.Model):
 #   shows=[show2, show3,show4,show5])
 
 # gunsNPetals = Artist(name="Guns N Petals",
-#   genres='["Rock n Roll"]',
+#   genres=["Rock n Roll"],
 #   city="San Francisco",
 #   state="CA",
 #   phone="326-123-5000",
@@ -138,7 +138,7 @@ class Show(db.Model):
 #   shows=[show1])
 
 # mattQuevedo = Artist(name="Matt Quevedo",
-#   genres='["Jazz"]',
+#   genres=["Jazz"],
 #   city="New York",
 #   state="NY",
 #   phone="300-400-5000",
@@ -149,7 +149,7 @@ class Show(db.Model):
 #   shows=[show2])
 
 # wildSaxBand = Artist(name="The Wild Sax Band",
-#   genres='["Jazz", "Classical"]',
+#   genres=["Jazz", "Classical"],
 #   city="San Francisco",
 #   state="CA",
 #   phone="432-325-5432",
@@ -240,9 +240,7 @@ def search_venues():
 @app.route('/venues/<int:venue_id>')
 def show_venue(venue_id):
   # shows the venue page with the given venue_id
-  # TODO: replace with real venue data from the venues table, using venue_id
-
-  # NOTE: need to fix genres (coming across as individual chars)
+  # DONE: replace with real venue data from the venues table, using venue_id
 
   venue = Venue.query.get(venue_id)
 
