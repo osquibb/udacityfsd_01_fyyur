@@ -27,7 +27,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 #----------------------------------------------------------------------------#
-# Models.
+# Models
 #----------------------------------------------------------------------------#
 
 class Venue(db.Model):
@@ -70,7 +70,6 @@ class Show(db.Model):
   start_time = db.Column(db.DateTime, nullable=False)
   artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'), nullable=False)
   venue_id = db.Column(db.Integer, db.ForeignKey('venue.id'), nullable=False)
-
 
 #----------------------------------------------------------------------------#
 # Initial Record Creation (temp)
@@ -315,7 +314,7 @@ def create_venue_submission():
   finally:
     db.session.close()
   if error:
-    flash('An error occurred. Venue ' + request.form['name'] + ' could not be listed.')
+    flash('An error occurred. Venue could not be listed.')
   else:
     flash('Venue ' + request.form['name'] + ' was successfully listed!')
 
@@ -566,7 +565,7 @@ def create_artist_submission():
   finally:
     db.session.close()
   if error:
-    flash('An error occurred. Artist ' + request.form['name'] + ' could not be listed.')
+    flash('An error occurred. Artist could not be listed.')
   else:
     flash('Artist ' + request.form['name'] + ' was successfully listed!')
 
