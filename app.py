@@ -568,6 +568,8 @@ def create_artist_form():
 
 @app.route('/artists/create', methods=['POST'])
 def create_artist_submission():
+  print(request.form)
+
   error = False
   try:
     artist = Artist(
@@ -580,7 +582,7 @@ def create_artist_submission():
       image_link=request.form['image_link'],
       website=request.form['website'],
       seeking_venue=True if 'seeking_venue' in request.form else False,
-      seeking_description=request.form['seeking_description']
+      seeking_description=request.form['seeking_description'] if 'seeking_description' in request.form else ''
     )
     db.session.add(artist)
     db.session.commit()
