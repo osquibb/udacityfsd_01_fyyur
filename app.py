@@ -496,7 +496,7 @@ def edit_artist_submission(artist_id):
     artist.facebook_link = request.form['facebook_link']
     artist.website = request.form['website']
     artist.seeking_venue = True if 'seeking_venue' in request.form else False 
-    artist.seeking_description = request.form['seeking_description']
+    artist.seeking_description=request.form['seeking_description'] if 'seeking_description' in request.form else ''
     db.session.commit()
   except:
     error = True
@@ -548,7 +548,7 @@ def edit_venue_submission(venue_id):
     venue.facebook_link = request.form['facebook_link']
     venue.website = request.form['website']
     venue.seeking_talent = True if 'seeking_talent' in request.form else False 
-    venue.seeking_description = request.form['seeking_description']
+    venue.seeking_description=request.form['seeking_description'] if 'seeking_description' in request.form else ''
     db.session.commit()
   except:
     error = True
