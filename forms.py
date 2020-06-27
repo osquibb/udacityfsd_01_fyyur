@@ -134,7 +134,7 @@ class ArtistForm(Form):
     )
     phone = StringField(
         # DONE implement validation logic for state
-        'phone', validators=[DataRequired(), Regexp("^[2-9]\d{2}-\d{3}-\d{4}$)", message="Phone number should be in xxx-xxx-xxxx format.")]
+        'phone', validators=[DataRequired(), Regexp("^[2-9]\d{2}-\d{3}-\d{4}$", message="Phone number should be in xxx-xxx-xxxx format.")]
     )
     image_link = StringField(
         'image_link'
