@@ -2,10 +2,11 @@
 {% block title %}{{ artist.name }} | Artist{% endblock %}
 {% block content %}
 <div class="row">
-	<div class="col-sm-6">
+	<div class="col-sm-4">
 		<h1 class="monospace">
 			{{ artist.name }}
 		</h1>
+		<a class="btn btn-primary" href="/artists/{{artist.id}}/edit">Edit Artist</a>
 		<p class="subtitle">
 			ID: {{ artist.id }}
 		</p>

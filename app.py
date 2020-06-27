@@ -474,7 +474,10 @@ def edit_artist(artist_id):
       phone=artist.phone,
       image_link=artist.image_link,
       genres=artist.genres,
-      facebook_link=artist.facebook_link
+      facebook_link=artist.facebook_link,
+      website=artist.website,
+      seeking_venue=artist.seeking_venue,
+      seeking_description=artist.seeking_description
     )
   # DONE: populate form with fields from artist with ID <artist_id>
   return render_template('forms/edit_artist.html', form=form, artist=artist)
@@ -502,7 +505,7 @@ def edit_artist_submission(artist_id):
   finally:
     db.session.close()
   if error:
-    flash('An error occurred. Artist ' + request.form['name'] + 'could not be changed.')
+    flash('An error occurred. Artist ' + request.form['name'] + ' could not be changed.')
   else:
     flash('Artist' + request.form['name'] + 'was successfully updated')
   # DONE: take values from the form submitted, and update existing
@@ -522,7 +525,10 @@ def edit_venue(venue_id):
       phone=venue.phone,
       image_link=venue.image_link,
       genres=venue.genres,
-      facebook_link=venue.facebook_link
+      facebook_link=venue.facebook_link,
+      website=venue.website,
+      seeking_talent=venue.seeking_talent,
+      seeking_description=venue.seeking_description
     )
   # DONE: populate form with values from venue with ID <venue_id>
   return render_template('forms/edit_venue.html', form=form, venue=venue)
@@ -568,7 +574,6 @@ def create_artist_form():
 
 @app.route('/artists/create', methods=['POST'])
 def create_artist_submission():
-  print(request.form)
 
   error = False
   try:
