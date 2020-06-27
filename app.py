@@ -323,7 +323,7 @@ def create_venue_submission():
       image_link=request.form['image_link'],
       website=request.form['website'],
       seeking_talent=True if 'seeking_talent' in request.form else False,
-      seeking_description=request.form['seeking_description']
+      seeking_description=request.form['seeking_description'] if 'seeking_description' in request.form else ''
     )
     db.session.add(venue)
     db.session.commit()
